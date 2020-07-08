@@ -15,7 +15,7 @@ try {
       useUnifiedTopology: true,
       useCreateIndex: true,
     })
-    .then(() => console.log("blog database connected ✍🏽"));
+    .then(() => console.log("database connected ✍🏽"));
 } catch (error) {
   console.error(`database connection error: ${error.message}`);
 }
@@ -38,7 +38,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => res.sendFile(__dirname + "/static/index.html"));
 
 // routes
-const blogPostRouter = require("./routes/blog.route");
+const blogPostRouter = require("./routes/blog/blog.route");
 app.use("/api/v1/blogposts", blogPostRouter);
 
 app.listen(port, () =>

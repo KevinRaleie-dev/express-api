@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
-let BlogPost = require("../models/blog.model");
+let BlogPost = require("../../models/blog/blog.model");
 
+// get all blog posts
 router.route("/").get(async (req, res) => {
   await BlogPost.find()
     .then((blogposts) => res.json(blogposts))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
+// add a blog post
 router.route("/add").post(async (req, res) => {
   const blogTitle = req.body.blogTitle;
   const blogImage = req.body.blogImage;
@@ -25,14 +27,14 @@ router.route("/add").post(async (req, res) => {
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
-// get blogpost by the _id
+// get blog post by the _id
 router.route("/:id").get((req, res) => {
   BlogPost.findById(req.params.id)
     .then((blogpost) => res.json(blogpost))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
-// delete blogpost by the _id
+// delete blog post by the _id
 router.route("/:id").delete(async (req, res) => {
   await BlogPost.findByIdAndDelete(req.params.id)
     .then(() => res.json("Blog post deleted."))
