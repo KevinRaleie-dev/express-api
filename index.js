@@ -35,7 +35,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.sendFile(__dirname + "/static/index.html"));
+app.get("/", (req, res) => res.send("The server is live🙂🔥"));
 
 // routes
 const blogPostRouter = require("./routes/blog/blog.route");
