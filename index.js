@@ -3,7 +3,6 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const path = require("path");
 const cors = require("cors");
 
 try {
@@ -14,7 +13,7 @@ try {
     .connect(process.env.MONGO_DB_NAME, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex:true,
+      useCreateIndex: true,
     })
     .then(() => console.log("blog database connected ✍🏽"));
 } catch (error) {
@@ -27,7 +26,6 @@ const port = process.env.PORT || 3000;
 // logging with morgan
 app.use(morgan("tiny"));
 
-
 // middleware
 app.use(cors());
 app.use(
@@ -37,9 +35,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.get("/", (req, res) =>
-  res.sendFile(__dirname + "/static/index.html")
-);
+app.get("/", (req, res) => res.sendFile(__dirname + "/static/index.html"));
 
 // routes
 const blogPostRouter = require("./routes/blog.route");
