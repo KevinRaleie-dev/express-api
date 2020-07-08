@@ -2,6 +2,7 @@
 
 ## Blog 
     - blogId        int
-    - blogTitle     string
-    - blogContent   string
-    - blogDate      date
+    - blogImage     string  required
+    - blogTitle     string  required
+    - blogContent   string  required  
+    - blogDate      date    default
