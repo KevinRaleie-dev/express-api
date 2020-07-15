@@ -16,7 +16,7 @@ REST suggests to create an object of the data requested by the client and send t
  *  `$ git clone https://github.com/KevinRaleie-dev/express-api.git`
 
  * Run `npm install` to install all node  dependencies 
-    - make sure you have the monggdb driver installed locally, if not <a href="https://docs.mongodb.com/drivers/">click here</a> to find out how you can set that up
+    - make sure you have the mongodb driver installed locally, if not <a href="https://docs.mongodb.com/drivers/">click here</a> to find out how you can set that up
     - if you do not have npm installed, <a href="https://nodejs.org/en/">click here</a> if you do not have node and npm installed
     - or run `yarn add ` if you use yarn package manager.  <a href="https://yarnpkg.com/">click here</a> on how to install yarn
 
