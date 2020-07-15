@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const helmet = require('helmet');
 
 try {
   mongoose.Promise = global.Promise;
@@ -24,7 +25,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // logging with morgan
-app.use(morgan("tiny"));
+app.use(morgan("common"));
+app.use(helmet());
 
 // middleware
 app.use(cors());
