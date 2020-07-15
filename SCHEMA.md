@@ -1,8 +1,8 @@
 # Blog Post Schema Design
 
-## Blog 
-    - blogId        int
-    - blogImage     string  required
-    - blogTitle     string  required
-    - blogContent   string  required  
-    - blogDate      date    default
+## Blog Post
+* [x] blogId -> number
+* [x] blogImage -> string
+* [x] blogTitle -> string  
+* [x] blogContent -> string    
+* [x] blogDate -> date

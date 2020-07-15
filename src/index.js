@@ -1,9 +1,9 @@
-require("dotenv").config();
-const express = require("express");
-const morgan = require("morgan");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const cors = require("cors");
+require('dotenv').config();
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
 const helmet = require('helmet');
 
 try {
@@ -16,7 +16,7 @@ try {
       useUnifiedTopology: true,
       useCreateIndex: true,
     })
-    .then(() => console.log("database connected ✍🏽"));
+    .then(() => console.log('database connected ✍🏽'));
 } catch (error) {
   console.error(`database connection error: ${error.message}`);
 }
@@ -25,7 +25,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // logging with morgan
-app.use(morgan("common"));
+app.use(morgan('common'));
 app.use(helmet());
 
 // middleware
@@ -33,16 +33,15 @@ app.use(cors());
 app.use(
   bodyParser.urlencoded({
     extended: true,
-  })
+  }),
 );
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.send("The server is live🙂🔥"));
+app.get('/', (req, res) => res.send('The server is live🙂🔥'));
 
 // routes
-const blogPostRouter = require("./routes/blog/blog.route");
-app.use("/api/v1/blogposts", blogPostRouter);
+const blogPostRouter = require('./routes/blog/blog.route');
 
-app.listen(port, () =>
-  console.log(`Server running on http://localhost:${port}`)
-);
+app.use('/api/v1/blogposts', blogPostRouter);
+
+app.listen(port, () => console.log(`Server running on http://localhost:${port}`));

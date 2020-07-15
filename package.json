@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "test": "mocha src/api.test.js --timeout 100000",
-    "lint": "eslint src/"
+    "lint": "eslint src/ --fix" 
   },
   "keywords": [],
   "author": "",
