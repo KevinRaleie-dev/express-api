@@ -10,6 +10,19 @@ REST suggests to create an object of the data requested by the client and send t
 
  -> <a href="https://www.edureka.co/blog/what-is-rest-api/">click here to read more</a>
 
- ## Usage
+ ## Installation and Usage
 
- 
+ * Git clone the project in your desired directory
+ *  `$ git clone https://github.com/KevinRaleie-dev/express-api.git`
+
+ * Run `npm install` to install all node  dependencies  
+    - if you do not have npm installed, <a href="https://nodejs.org/en/">click here</a> if you do not have node and npm installed
+    - or run `yarn add ` if you use yarn package manager.  <a href="https://yarnpkg.com/">click here</a> on how to install yarn
+
+* Run the server by running the command `npm start` in your directory, this will start the server on http://localhost:4545. 
+
+
+
+
+
+
