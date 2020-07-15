@@ -46,8 +46,11 @@ router.route('/:id').delete(async (req, res) => {
 router.route('/update/:id').patch(async (req, res) => {
   await BlogPost.findById(req.params.id)
     .then((blogpost) => {
+      // eslint-disable-next-line no-param-reassign
       blogpost.blogTitle = req.body.blogTitle;
+      // eslint-disable-next-line no-param-reassign
       blogpost.blogImage = req.body.blogImage;
+      // eslint-disable-next-line no-param-reassign
       blogpost.blogContent = req.body.blogContent;
 
       blogpost
