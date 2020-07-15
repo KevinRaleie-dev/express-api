@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
@@ -43,5 +44,21 @@ app.get('/', (req, res) => res.send('The server is live🙂🔥'));
 const blogPostRouter = require('./routes/blog/blog.route');
 
 app.use('/api/v1/blogposts', blogPostRouter);
+
+app.use((req, res, next) => {
+  const error = new Error(`Not found - ${req.originalUrl}`);
+  res.status(404);
+  next(error);
+});
+
+// eslint-disable-next-line no-unused-vars
+app.use((error, req, res, next) => {
+  const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+  res.status(statusCode);
+  res.json({
+    message: error.message,
+    stack: process.env.NODE_ENV === 'production' ? '👋🏼 Go home' : error.stack,
+  });
+});
 
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
