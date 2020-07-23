@@ -27,6 +27,8 @@ const port = process.env.PORT || 3000;
 
 // logging with morgan
 app.use(morgan('common'));
+
+// server security with helmet
 app.use(helmet());
 
 // middleware
@@ -45,6 +47,7 @@ const blogPostRouter = require('./routes/blog/blog.route');
 
 app.use('/api/v1/blogposts', blogPostRouter);
 
+// error handling route middleware
 app.use((req, res, next) => {
   const error = new Error(`Not found - ${req.originalUrl}`);
   res.status(404);
